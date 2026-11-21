@@ -1,0 +1,193 @@
+/* Direction 5: built on the client's own file "Verzia E (tmavá, korálová)" (jarofotos-e-koral.html).
+   His layout, colours, type and reveal; changed only where the project rules ask for it: real photos and TODO chips
+   instead of invented contacts, 44 px touch targets, visible focus, a reveal that cannot leave content hidden,
+   the client gallery on its own page (galeria/) backed by his Google Drive. */
+:root{
+  color-scheme:dark;
+  /* his Verzia E colours */
+  --bg:#141415;
+  --bg-2:#1f1f21;
+  --ink:#e9e8e5;
+  --mute:#9a9a9c;          /* 6.6:1 on --bg, 5.9:1 on --bg-2 */
+  --line:rgba(233,232,229,.2);
+  --coral:#ec7a64;         /* 6.6:1 on --bg */
+  --coral-ink:#15130f;
+  --err:#ff9d8a;
+  --sans:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --focus:var(--coral);
+  --todo-ink:#E0B987;
+  --lb-bg:#0c0b0d;
+  --lb-ink:#fff;
+  --lb-line:rgba(255,255,255,.4);
+  --lb-accent:var(--coral);
+}
+html{scroll-padding-top:84px}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--sans);padding-top:env(safe-area-inset-top,0px)}
+h1,h2,h3{font-family:var(--sans);font-weight:700;letter-spacing:-.035em;line-height:1;text-wrap:balance}
+h1,h2{font-size:clamp(38px,6.2vw,80px)}
+::selection{background:var(--coral);color:var(--coral-ink)}
+.skip{background:var(--coral);color:var(--coral-ink)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+/* ---------- header: his bar; the menu scrolls sideways on phones and marks the section in view ---------- */
+.top{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;justify-content:space-between;align-items:center;min-height:64px;gap:12px}
+.logo{display:inline-flex;align-items:center;min-height:44px;font:700 22px/1 var(--sans);letter-spacing:-.035em;text-decoration:none}
+.menu{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.menu::-webkit-scrollbar{display:none}
+.menu a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;white-space:nowrap;text-decoration:none;color:var(--mute);font-size:15px;font-weight:500;transition:color .2s,box-shadow .2s}
+.menu a:hover{color:var(--ink)}
+.menu a[aria-current="true"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--coral)}
+.menu a:focus-visible{outline-offset:-2px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border:1px solid var(--ink);border-radius:3px;background:var(--ink);color:var(--bg);font:600 16px/1.2 var(--sans);text-align:center;text-decoration:none;cursor:pointer;transition:background-color .25s,color .25s,border-color .25s}
+.btn:hover{background:var(--coral);border-color:var(--coral);color:var(--coral-ink)}
+.btn.ghost{background:none;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.btn[disabled]{opacity:.6;cursor:progress}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+
+/* ---------- his reveal (fade up, strips staggered); only on when it can finish, never in captures or print ---------- */
+.rv-on .rev{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+.rv-on .rev.in{opacity:1;transform:none}
+[data-shot] .rev{opacity:1!important;transform:none!important;transition:none!important}
+@media print{.rev{opacity:1!important;transform:none!important}}
+
+/* ---------- o mne ---------- */
+.about{display:flex;align-items:center;min-height:calc(100vh - 65px);min-height:calc(100svh - 65px);padding:56px 0 70px}
+.about__grid{display:grid;grid-template-columns:5fr 6fr;gap:64px;align-items:center;width:100%}
+.portrait{aspect-ratio:4/5;overflow:hidden;border-radius:3px;background:var(--bg-2)}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.about p{max-width:46ch;margin-top:22px;color:var(--mute);font-size:19px}
+.about p.about__todo{font-size:inherit}
+
+/* ---------- fotky pre klientov ---------- */
+.klient{padding:100px 0;border-top:1px solid var(--line)}
+.kl{max-width:640px;text-align:center}
+.kl p{margin:18px 0 0;color:var(--mute)}
+.code{display:flex;gap:12px;margin-top:28px}
+.code__input{flex:1;min-width:0;min-height:52px;padding:0 14px;border:1px solid var(--ink);border-radius:3px;background:transparent;color:var(--ink);font:500 18px/1 var(--sans);letter-spacing:.18em;text-align:center;text-transform:uppercase}
+.code__input::placeholder{color:var(--mute);letter-spacing:.14em}
+.code__input:focus-visible{outline:2px solid var(--coral);outline-offset:2px;border-color:var(--coral)}
+.kl p.err{color:var(--err)}
+.kl__demo{display:inline-block;padding:10px 14px;border:1px dashed var(--todo-ink);color:var(--todo-ink)!important;font-size:15px}
+
+/* ---------- kategórie: always five slots, like his file ---------- */
+.cat{padding:80px 0;border-top:1px solid var(--line)}
+.cat-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px 16px;margin-bottom:18px}
+.cat-head h2{font-size:clamp(34px,4.8vw,62px)}
+.cat-all{display:inline-flex;align-items:center;min-height:44px;color:var(--coral);font-size:15px;font-weight:600;text-decoration:none}
+.cat-all:hover{text-decoration:underline}
+html:not(.js) .cat-all{display:none}
+.strip{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.t{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;border-radius:3px;background:var(--bg-2);cursor:zoom-in}
+.t img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.t:hover img{transform:scale(1.05)}
+.t:focus-visible{outline-offset:3px}
+.t.ph{display:grid;place-items:center;border:1px dashed var(--line);color:var(--mute);font-size:13px;cursor:default}
+
+/* ---------- category view (his #kat-...) ---------- */
+#kat-view{min-height:70vh;padding:40px 0 80px}
+.back{display:inline-flex;align-items:center;min-height:44px;margin-bottom:18px;color:var(--coral);font-weight:600;text-decoration:none}
+.back:hover{text-decoration:underline}
+#kat-title:focus{outline:none}
+#kat-view p.n{margin:10px 0 40px;color:var(--mute)}
+.masonry{columns:3 260px;column-gap:16px}
+.masonry a{display:block;break-inside:avoid;margin:0 0 16px;overflow:hidden;border-radius:3px;background:var(--bg-2);cursor:zoom-in}
+.masonry img{width:100%;height:auto;transition:transform .4s}
+.masonry a:hover img{transform:scale(1.03)}
+
+/* ---------- kontakt ---------- */
+.contact{padding:100px 0;background:var(--bg-2)}
+.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.c-list{margin:34px 0 0}
+.c-list li{padding:16px 0;border-top:1px solid var(--line)}
+.c-list small{display:block;color:var(--mute);font-size:14px}
+.c-list a{display:inline-flex;align-items:center;min-height:44px;font-size:20px;text-decoration:none}
+.c-list a:hover{color:var(--coral)}
+.c-list .todo{margin-top:6px}
+.c-form{display:grid;gap:14px}
+.c-form label{display:block;color:var(--mute);font-size:14px}
+.c-form input,.c-form select,.c-form textarea{display:block;width:100%;min-height:44px;margin-top:6px;padding:10px 0;border:0;border-bottom:1px solid var(--ink);border-radius:0;background:transparent;color:var(--ink);font:inherit}
+.c-form select option{background:var(--bg-2);color:var(--ink)}
+.c-form textarea{min-height:130px;resize:vertical}
+.c-form input:focus-visible,.c-form select:focus-visible,.c-form textarea:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+.c-form .btn,.c-form__copy .btn{background:var(--coral);border-color:var(--coral);color:var(--coral-ink);justify-self:start}
+.c-form .btn:hover,.c-form__copy .btn:hover{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.c-form__help{color:var(--mute);font-size:14px;max-width:46ch}
+.c-form__status:empty{display:none}
+.c-form__copy{display:grid;gap:10px}
+.c-form__copy textarea{min-height:150px;padding:10px;border:1px solid var(--line)}
+html:not(.js) .c-form{display:none}
+.c-direct{margin-top:22px;color:var(--mute);font-size:15px}
+.c-direct a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink)}
+.c-direct a:hover{color:var(--coral)}
+
+/* ---------- footer ---------- */
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+
+/* ---------- lightbox skin (his: dark, square buttons, coral download) ---------- */
+.lb__btn{border-radius:3px;background:var(--lb-bg)}
+.lb__btn:hover{background:#1f1f21}
+.lb__cap{font-weight:600}
+.lb__count{color:var(--mute);font-size:15px}
+.lb__dl{display:inline-flex;align-items:center;min-height:44px;padding:0 24px;border-radius:3px;background:var(--coral);color:var(--coral-ink);font-weight:600;text-decoration:none}
+.lb__dl:hover{background:var(--ink)}
+
+/* ---------- responsive (his breakpoints) ---------- */
+@media (max-width:860px){
+  .about__grid,.c-grid{grid-template-columns:1fr;gap:40px}
+  .portrait{max-width:380px}
+  .about{min-height:0;padding:40px 0 76px}
+  .klient,.contact{padding:76px 0}
+  .cat{padding:64px 0}
+  .strip{grid-template-columns:repeat(5,minmax(150px,42vw));overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:thin}
+  .strip>*{scroll-snap-align:start}
+}
+@media (max-width:760px){
+  html{scroll-padding-top:116px}
+  .bar{flex-direction:column;align-items:stretch;gap:0;padding-top:4px}
+  .menu{margin:0 -12px}
+}
+@media (max-width:520px){
+  .wrap{padding:0 16px}
+  .logo{font-size:19px}
+  .code{flex-direction:column}
+  .menu{margin:0 -10px}
+  .menu a{padding:0 10px;font-size:14px}
+}
+
+/* =====================================================================
+   Client gallery page (galeria/): his "Fotky pre klientov" box and category view
+   ===================================================================== */
+.gal{padding:56px 0 100px}
+.gal__lock{padding:44px 0 0}
+.gal__lock .kl{margin:0 auto}
+.gal__retry{margin-top:14px}
+.gal__status{display:flex;justify-content:center;align-items:center;gap:12px;color:var(--mute)}
+.gal__status:empty{display:none}
+.gal__status.is-busy::before{content:"";flex:none;width:18px;height:18px;border:2px solid var(--line);border-top-color:var(--coral);border-radius:50%;animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(1turn)}}
+.gal__note{font-size:15px}
+.gal__head{display:grid;gap:14px;margin-bottom:36px}
+.gal__head h1:focus{outline:none}
+.gal__head .back{margin-bottom:0}
+.gal__meta{color:var(--mute)}
+.gal__actions{display:flex;flex-wrap:wrap;gap:12px}
+.gal__tip{color:var(--mute);font-size:15px;max-width:60ch}
+.gal__empty{padding:24px 0;color:var(--mute);max-width:48ch}
+/* row by row in camera order (CSS columns would fill column 1 first: in a 400-photo wedding the top row would show
+   photos 1, 101, 201, 301, and the lightbox and Tab order would run down a column); every tile is his 4:5,
+   the lightbox shows the whole photo */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+@media (min-width:900px){.grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}}
+.tile{position:relative;margin:0}
+.tile__open{display:block;aspect-ratio:4/5;overflow:hidden;border-radius:3px;background:var(--bg-2);cursor:zoom-in}
+.tile__open img{width:100%;height:100%;object-fit:cover;transition:opacity .5s ease,transform .4s}
+.tile__open:hover img{transform:scale(1.03)}
+.tile__open img.is-loading{opacity:0}
+.tile__fail{display:grid;place-items:center;height:100%;padding:16px;color:var(--mute);font-size:14px;text-align:center}
+.tile__dl{position:absolute;right:8px;bottom:8px;display:grid;place-items:center;width:44px;height:44px;border-radius:3px;background:rgba(20,20,21,.82);color:var(--ink);text-decoration:none;transition:background-color .2s,color .2s}
+.tile__dl:hover{background:var(--coral);color:var(--coral-ink)}
+.tile__dl svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}

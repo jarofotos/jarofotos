@@ -1,0 +1,112 @@
+{
+ "svadobna-kytica": {
+  "code": "DdO8N73CPbC",
+  "w": 1440,
+  "h": 1920,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "#f8f8f8"
+ },
+ "portret-zapad": {
+  "code": "DM-_3lysSGD",
+  "w": 1080,
+  "h": 1440,
+  "widths": [
+   480,
+   960,
+   1080
+  ],
+  "color": "#f8e8c8"
+ },
+ "stuzkova": {
+  "code": "DeHnAKmCA8i",
+  "w": 1440,
+  "h": 1920,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "#983808"
+ },
+ "sulovske-skaly": {
+  "code": "DfJyVJJCMta",
+  "w": 1440,
+  "h": 960,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "#d8d8d8"
+ },
+ "kalvaria": {
+  "code": "DTASq41jNWm",
+  "w": 1440,
+  "h": 1440,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "#989898"
+ },
+ "trnava-noc": {
+  "code": "DXFds-dDEpe",
+  "w": 1080,
+  "h": 1440,
+  "widths": [
+   480,
+   960,
+   1080
+  ],
+  "color": "#381818"
+ },
+ "birmovka": {
+  "code": "DPbb785DAp5",
+  "w": 1440,
+  "h": 1440,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "#e8d8b8"
+ },
+ "krajina-luka": {
+  "code": "DPPKaFzjKDP",
+  "w": 1440,
+  "h": 1440,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "#282818"
+ },
+ "lumen-dav": {
+  "code": "DZhZ37jDMCY",
+  "w": 1440,
+  "h": 1440,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "#181818"
+ },
+ "lumen-isaac": {
+  "code": "DZc5dyCDENc",
+  "w": 1440,
+  "h": 1920,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "#182828"
+ }
+}

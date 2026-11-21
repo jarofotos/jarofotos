@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fotky pre klientov – Jarofotos</title>
+<meta name="description" content="Súkromná galéria pre klientov fotografa Jaromíra Mareka (Jarofotos).">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#141415">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23141415'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%23EC7A64' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preload" href="../../assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../style.css">
+<script>document.documentElement.classList.add('js');</script>
+<style>html:not(.js) .code{display:none}</style>
+</head>
+<body>
+<a class="skip" href="#gal">Preskočiť na galériu</a>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="../">Jarofotos</a>
+    <nav class="menu" aria-label="Hlavné menu">
+      <a href="../#o-mne">O mne</a><a href="./" aria-current="true">Pre klientov</a><a href="../#svadby">Svadby</a><a href="../#stuzkove">Stužkové</a><a href="../#eventy">Eventy</a><a href="../#portrety">Portréty</a><a href="../#hobby">Hobby</a><a href="../#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main class="gal" id="gal">
+
+  <section class="gal__lock" id="lock" aria-labelledby="h-lock"><div class="wrap kl">
+    <h1 id="h-lock">Fotky pre klientov</h1>
+    <p>Zadajte kód, ktorý ste dostali, a otvorí sa vám vaša súkromná galéria. Fotky si v nej pozriete a stiahnete.</p>
+    <noscript><p>Galéria potrebuje zapnutý JavaScript. Ak ho zapnúť nemôžete, <a href="https://ig.me/m/jarofotos" rel="noopener">napíšte mi na Instagram</a> a fotky vám pošlem inak.</p></noscript>
+    <form class="code" id="code-form" novalidate>
+      <label class="sr-only" for="code-input">Váš kód</label>
+      <input class="code__input" id="code-input" name="kod" type="text" placeholder="Váš kód" autocomplete="off" autocapitalize="characters" spellcheck="false">
+      <button class="btn" type="submit" id="code-submit">Otvoriť galériu</button>
+    </form>
+    <p class="err" id="code-err" role="alert" hidden></p>
+    <button class="btn ghost gal__retry" type="button" id="retry" hidden>Skúsiť znova</button>
+    <p class="gal__status" id="status" role="status"></p>
+    <p class="kl__demo" id="demo-note" hidden>Ukážka: galéria ešte nie je prepojená s Google Diskom. Zadajte kód <b>UKAZKA</b> a otvorí sa ukážka s fotkami z portfólia.</p>
+    <p class="gal__note">Fotky sú uložené na Google Disku. Stránka sa naň pripojí, až keď zadáte kód.</p>
+  </div></section>
+
+  <section id="open" aria-labelledby="h-open" hidden><div class="wrap">
+    <header class="gal__head">
+      <a class="back" href="../">← Späť na web</a>
+      <h1 id="h-open" tabindex="-1">Vaše fotky</h1>
+      <p class="gal__meta" id="meta"></p>
+      <p class="kl__demo" id="demo-banner" hidden>Ukážka s fotkami z portfólia. Skutočná galéria sa načíta z Google Disku.</p>
+      <div class="gal__actions">
+        <a class="btn" id="all" href="#" rel="noopener" hidden>Stiahnuť všetky z Google Disku</a>
+        <button class="btn ghost" id="relock" type="button">Zamknúť galériu</button>
+      </div>
+      <p class="gal__tip">Fotku zväčšíte kliknutím. Stiahnete ju tlačidlom v jej rohu alebo vo veľkom náhľade.<span id="all-tip" hidden> Tlačidlo „Stiahnuť všetky“ otvorí priečinok na Google Disku, odkiaľ ich stiahnete naraz ako ZIP.</span></p>
+    </header>
+    <p class="gal__empty" id="empty" hidden>Fotky do tejto galérie ešte nahrávam. Skúste to neskôr, alebo mi napíšte na Instagram.</p>
+    <div class="grid" id="grid"></div>
+  </div></section>
+
+</main>
+
+<div class="wrap"><footer class="foot"><span>© 2026 Jarofotos</span><span>Všetky práva vyhradené. Návrh webu, zatiaľ neschválený koncept.</span></footer></div>
+
+<!-- photos for the demo gallery (only used while config.js has no apiUrl); <template> content does not load -->
+<template id="demo-photos"><a href="../../assets/img/svadobna-kytica-1440.webp" data-caption="Kytica, Svadba"><img src="../../assets/img/svadobna-kytica-960.webp" srcset="../../assets/img/svadobna-kytica-480.webp 480w, ../../assets/img/svadobna-kytica-960.webp 960w, ../../assets/img/svadobna-kytica-1440.webp 1440w" sizes="(min-width: 1160px) 210px, (min-width: 900px) 22vw, 50vw" width="1440" height="1920" alt="Ruka drží svadobnú kyticu z ružových ruží a drobných bielych kvietkov proti modrej oblohe s oblakmi." loading="lazy" decoding="async"></a><a href="../../assets/img/portret-zapad-1080.webp" data-caption="Portrét pri západe slnka, Portrétne focenie"><img src="../../assets/img/portret-zapad-960.webp" srcset="../../assets/img/portret-zapad-480.webp 480w, ../../assets/img/portret-zapad-960.webp 960w, ../../assets/img/portret-zapad-1080.webp 1080w" sizes="(min-width: 1160px) 210px, (min-width: 900px) 22vw, 50vw" width="1080" height="1440" alt="Muž v béžovej bunde sa pozerá nabok, za ním zlaté svetlo zapadajúceho slnka nad rovinou." loading="lazy" decoding="async"></a><a href="../../assets/img/stuzkova-1440.webp" data-caption="Stužková slávnosť"><img src="../../assets/img/stuzkova-960.webp" srcset="../../assets/img/stuzkova-480.webp 480w, ../../assets/img/stuzkova-960.webp 960w, ../../assets/img/stuzkova-1440.webp 1440w" sizes="(min-width: 1160px) 210px, (min-width: 900px) 22vw, 50vw" width="1440" height="1920" alt="Dievča v trblietavých šatách sa usmieva na ženu, ktorá ju drží okolo pliec, nad nimi visia sklenené lampióny." loading="lazy" decoding="async"></a><a href="../../assets/img/sulovske-skaly-1440.webp" data-caption="Súľovské skaly"><img src="../../assets/img/sulovske-skaly-960.webp" srcset="../../assets/img/sulovske-skaly-480.webp 480w, ../../assets/img/sulovske-skaly-960.webp 960w, ../../assets/img/sulovske-skaly-1440.webp 1440w" sizes="(min-width: 1160px) 210px, (min-width: 900px) 22vw, 50vw" width="1440" height="960" alt="Skalný útvar v Súľovských skalách v teplom svetle, v popredí spadnutý strom a borovice." loading="lazy" decoding="async"></a><a href="../../assets/img/kalvaria-1440.webp" data-caption="Kalvária, Banská Štiavnica"><img src="../../assets/img/kalvaria-960.webp" srcset="../../assets/img/kalvaria-480.webp 480w, ../../assets/img/kalvaria-960.webp 960w, ../../assets/img/kalvaria-1440.webp 1440w" sizes="(min-width: 1160px) 210px, (min-width: 900px) 22vw, 50vw" width="1440" height="1440" alt="Červená Kalvária s dvoma vežami na kopci medzi zasneženými lesmi pri Banskej Štiavnici." loading="lazy" decoding="async"></a><a href="../../assets/img/trnava-noc-1080.webp" data-caption="Trnava, historické centrum"><img src="../../assets/img/trnava-noc-960.webp" srcset="../../assets/img/trnava-noc-480.webp 480w, ../../assets/img/trnava-noc-960.webp 960w, ../../assets/img/trnava-noc-1080.webp 1080w" sizes="(min-width: 1160px) 210px, (min-width: 900px) 22vw, 50vw" width="1080" height="1440" alt="Večerná ulica v historickom centre Trnavy osvetlená oranžovými lampami, v pozadí mestská veža." loading="lazy" decoding="async"></a><a href="../../assets/img/birmovka-1440.webp" data-caption="Birmovka, Leopoldov"><img src="../../assets/img/birmovka-960.webp" srcset="../../assets/img/birmovka-480.webp 480w, ../../assets/img/birmovka-960.webp 960w, ../../assets/img/birmovka-1440.webp 1440w" sizes="(min-width: 1160px) 210px, (min-width: 900px) 22vw, 50vw" width="1440" height="1440" alt="Birmovanci v lavicách kostola, na lavicách červené stuhy, vpredu dvaja chlapci a dievča." loading="lazy" decoding="async"></a><a href="../../assets/img/krajina-luka-1440.webp" data-caption="Slovenská krajina, Slovensko"><img src="../../assets/img/krajina-luka-960.webp" srcset="../../assets/img/krajina-luka-480.webp 480w, ../../assets/img/krajina-luka-960.webp 960w, ../../assets/img/krajina-luka-1440.webp 1440w" sizes="(min-width: 1160px) 210px, (min-width: 900px) 22vw, 50vw" width="1440" height="1440" alt="Poľná cesta cez lúku k vinici a zvlnenej krajine, vľavo veľký strom a modrá obloha." loading="lazy" decoding="async"></a><a href="../../assets/img/lumen-dav-1440.webp" data-caption="Pred pódiom, Festival Lumen"><img src="../../assets/img/lumen-dav-960.webp" srcset="../../assets/img/lumen-dav-480.webp 480w, ../../assets/img/lumen-dav-960.webp 960w, ../../assets/img/lumen-dav-1440.webp 1440w" sizes="(min-width: 1160px) 210px, (min-width: 900px) 22vw, 50vw" width="1440" height="1440" alt="Dav pred osvetleným pódiom na festivale Lumen, ľudia držia ruky a mobily vo vzduchu." loading="lazy" decoding="async"></a><a href="../../assets/img/lumen-isaac-1440.webp" data-caption="Isaac Records, Festival Lumen"><img src="../../assets/img/lumen-isaac-960.webp" srcset="../../assets/img/lumen-isaac-480.webp 480w, ../../assets/img/lumen-isaac-960.webp 960w, ../../assets/img/lumen-isaac-1440.webp 1440w" sizes="(min-width: 1160px) 210px, (min-width: 900px) 22vw, 50vw" width="1440" height="1920" alt="Spevák v tmavej bunde a farebných okuliaroch spieva do mikrofónu na pódiu festivalu Lumen." loading="lazy" decoding="async"></a></template>
+
+<script src="config.js"></script>
+<script src="../../assets/js/lightbox.js"></script>
+<script src="galeria.js"></script>
+</body>
+</html>
