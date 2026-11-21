@@ -60,9 +60,8 @@ h1,h2{font-size:clamp(38px,6.2vw,80px)}
 .portrait{aspect-ratio:4/5;overflow:hidden;border-radius:3px;background:var(--bg-2)}
 .portrait img{width:100%;height:100%;object-fit:cover}
 .about p{max-width:46ch;margin-top:22px;color:var(--mute);font-size:19px}
-.about p.about__todo{font-size:inherit}
 
-/* ---------- fotky pre klientov ---------- */
+/* ---------- kód pre klientov ---------- */
 .klient{padding:100px 0;border-top:1px solid var(--line)}
 .kl{max-width:640px;text-align:center}
 .kl p{margin:18px 0 0;color:var(--mute)}
@@ -100,29 +99,13 @@ html:not(.js) .cat-all{display:none}
 
 /* ---------- kontakt ---------- */
 .contact{padding:100px 0;background:var(--bg-2)}
-.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.c-intro{max-width:46ch;color:var(--mute);font-size:19px}
 .c-list{margin:34px 0 0}
 .c-list li{padding:16px 0;border-top:1px solid var(--line)}
 .c-list small{display:block;color:var(--mute);font-size:14px}
-.c-list a{display:inline-flex;align-items:center;min-height:44px;font-size:20px;text-decoration:none}
+.c-list a{display:inline-flex;align-items:center;min-height:44px;font-size:20px;text-decoration:none;overflow-wrap:anywhere}
 .c-list a:hover{color:var(--coral)}
-.c-list .todo{margin-top:6px}
-.c-form{display:grid;gap:14px}
-.c-form label{display:block;color:var(--mute);font-size:14px}
-.c-form input,.c-form select,.c-form textarea{display:block;width:100%;min-height:44px;margin-top:6px;padding:10px 0;border:0;border-bottom:1px solid var(--ink);border-radius:0;background:transparent;color:var(--ink);font:inherit}
-.c-form select option{background:var(--bg-2);color:var(--ink)}
-.c-form textarea{min-height:130px;resize:vertical}
-.c-form input:focus-visible,.c-form select:focus-visible,.c-form textarea:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
-.c-form .btn,.c-form__copy .btn{background:var(--coral);border-color:var(--coral);color:var(--coral-ink);justify-self:start}
-.c-form .btn:hover,.c-form__copy .btn:hover{background:var(--ink);border-color:var(--ink);color:var(--bg)}
-.c-form__help{color:var(--mute);font-size:14px;max-width:46ch}
-.c-form__status:empty{display:none}
-.c-form__copy{display:grid;gap:10px}
-.c-form__copy textarea{min-height:150px;padding:10px;border:1px solid var(--line)}
-html:not(.js) .c-form{display:none}
-.c-direct{margin-top:22px;color:var(--mute);font-size:15px}
-.c-direct a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink)}
-.c-direct a:hover{color:var(--coral)}
 
 /* ---------- footer ---------- */
 .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--mute);font-size:14px}

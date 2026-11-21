@@ -1,10 +1,9 @@
 /* Direction 5 (his "Verzia E"): lightbox, the menu marking the section in view, his fade-up reveal, his category view
-   (#kat-<id>), the client code form and the contact form.
+   (#kat-<id>) and the client code form.
    Without this script the page is still complete: every photo shows, photos open as image files, the code form submits
-   to galeria/?kod=..., the contact form is hidden and the Instagram links remain. */
+   to galeria/?kod=... and the contact links (phone, e-mail, Instagram, Facebook) are plain links. */
 (function () {
   'use strict';
-  var IG = 'https://ig.me/m/jarofotos';
   var $ = function (id) { return document.getElementById(id); };
   var home = $('home'), view = $('kat-view'), menu = $('menu');
   var TITLE = document.title;
@@ -126,28 +125,5 @@
   input.addEventListener('input', function () {
     err.hidden = true;
     input.removeAttribute('aria-invalid');
-  });
-
-  // ---------- his contact form: there is no e-mail yet, so it writes the message for an Instagram DM ----------
-  // (ig.me cannot carry text, so the message is copied and the visitor pastes it into the chat)
-  var cf = $('contact-form'), status = $('contact-status'), copyBox = $('contact-copy'), copyText = $('contact-text');
-  cf.addEventListener('submit', function (e) {
-    e.preventDefault(); // only fires once the required fields are filled
-    var f = cf.elements;
-    var d = f.datum.value ? f.datum.value.split('-').reverse().map(Number).join('. ') : '';
-    var text = 'Ahoj Jaro, volám sa ' + f.meno.value.trim() + '.\nTyp udalosti: ' + f.typ.value +
-      (d ? '\nDátum: ' + d : '') + '\n\n' + f.sprava.value.trim();
-    var copy = navigator.clipboard && window.isSecureContext ? navigator.clipboard.writeText(text) : Promise.reject(new Error('no clipboard'));
-    copy.then(function () {
-      copyBox.hidden = true;
-      status.textContent = 'Správa je skopírovaná. Otváram Instagram, vložte ju do chatu a odošlite.';
-      setTimeout(function () { location.href = IG; }, 1200);
-    }, function () {
-      status.textContent = 'Správu sa nepodarilo skopírovať automaticky. Skopírujte text nižšie a pošlite mi ho na Instagram.';
-      copyText.value = text;
-      copyBox.hidden = false;
-      copyText.focus();
-      copyText.select();
-    });
   });
 })();
